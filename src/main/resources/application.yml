@@ -1,0 +1,25 @@
+spring:
+    security:
+        oauth2:
+            client:
+                provider:
+                    keycloak:
+                        issuer-uri: http://localhost:8090/auth/realms/spring-cloud-gateway-realm
+                        user-name-attribute: preferred_username
+                registration:
+                    keycloak:
+                        client-id: spring-cloud-gateway-client
+                        client-secret: 016c6e1c-9cbe-4ad3-aee1-01ddbb370f32
+    cloud:
+        gateway:
+            default-filters:
+                - TokenRelay
+            routes:
+                - id: kunde-service
+                  uri: http://127.0.0.1:8081/kunde
+                  predicates:
+                      - Path=/kunde/**
+                - id: lieferant-service
+                  uri: http://127.0.0.1:8081/lieferant
+                  predicates:
+                      - Path=/lieferant/**

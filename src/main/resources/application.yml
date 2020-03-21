@@ -15,7 +15,7 @@ spring:
             default-filters:
                 - TokenRelay
             routes:
-                - id: kunde-service
+                - id: remedy-service
                   uri: http://127.0.0.1:8081/remedy
                   predicates:
                       - Path=/remedy/**

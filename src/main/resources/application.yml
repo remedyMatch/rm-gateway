@@ -16,10 +16,6 @@ spring:
                 - TokenRelay
             routes:
                 - id: kunde-service
-                  uri: http://127.0.0.1:8081/kunde
+                  uri: http://127.0.0.1:8081/remedy
                   predicates:
-                      - Path=/kunde/**
-                - id: lieferant-service
-                  uri: http://127.0.0.1:8081/lieferant
-                  predicates:
-                      - Path=/lieferant/**
+                      - Path=/remedy/**

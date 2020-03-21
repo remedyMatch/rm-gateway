@@ -4,12 +4,12 @@ spring:
             client:
                 provider:
                     keycloak:
-                        issuer-uri: http://localhost:8090/auth/realms/spring-cloud-gateway-realm
+                        issuer-uri: http://localhost:8090/auth/realms/master
                         user-name-attribute: preferred_username
                 registration:
                     keycloak:
                         client-id: spring-cloud-gateway-client
-                        client-secret: 016c6e1c-9cbe-4ad3-aee1-01ddbb370f32
+                        client-secret: 58d69637-3c22-4ba1-a19b-f7f7fa34ada1
     cloud:
         gateway:
             default-filters:

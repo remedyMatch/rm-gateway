@@ -7,10 +7,10 @@ spring:
           predicates:
             - Path=/remedy/**
         - id: keycloak-service
-            uri: http://localhost:8090/auth
-            predicates:
-              - Path=/auth/**
+          uri: http://localhost:8090/auth
+          predicates:
+            - Path=/auth/**
         - id: frontend-service
-            uri: http://localhost:3000
-            predicates:
-              - Path=/**
+          uri: http://localhost:3000
+          predicates:
+            - Path=/**

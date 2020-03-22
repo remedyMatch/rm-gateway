@@ -1,21 +1,16 @@
 spring:
-    security:
-        oauth2:
-            client:
-                provider:
-                    keycloak:
-                        issuer-uri: http://localhost:8090/auth/realms/master
-                        user-name-attribute: preferred_username
-                registration:
-                    keycloak:
-                        client-id: spring-cloud-gateway-client
-                        client-secret: 58d69637-3c22-4ba1-a19b-f7f7fa34ada1
-    cloud:
-        gateway:
-            default-filters:
-                - TokenRelay
-            routes:
-                - id: remedy-service
-                  uri: http://127.0.0.1:8081/remedy
-                  predicates:
-                      - Path=/remedy/**
+  cloud:
+    gateway:
+      routes:
+        - id: remedy-service
+          uri: http://localhost:8081/remedy
+          predicates:
+            - Path=/remedy/**
+        - id: keycloak-service
+            uri: http://localhost:8090/auth
+            predicates:
+              - Path=/auth/**
+        - id: frontend-service
+            uri: http://localhost:3000
+            predicates:
+              - Path=/**
